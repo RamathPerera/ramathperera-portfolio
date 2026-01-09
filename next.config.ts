@@ -1,11 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: "export",           // 🔑 Required for static export
-  basePath: "/ramathperera-portfolio",
-  assetPrefix: "/ramathperera-portfolio/",
+  output: "export",           // 🔑 Keep this for static export
+  // REMOVE basePath and assetPrefix
   images: {
-    unoptimized: true,
+    unoptimized: true,        // 🔑 Keep this for GitHub Pages
     remotePatterns: [
       {
         protocol: "https",
