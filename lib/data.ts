@@ -113,7 +113,7 @@ export const EDUCATION = [
   {
     id: 1,
     institution: "University of Colombo School of Computing",
-    logo: "/logos/ucsc.png",
+    logo: "/logos/ucsc.webp",
     degree: "B.Sc. (Hons) in Computer Science",
     period: "2022 - Present (Exp. 2026)",
     gpa: "Current GPA: 3.5055",
@@ -122,7 +122,7 @@ export const EDUCATION = [
   {
     id: 2,
     institution: "Piliyandala Central College",
-    logo: "/logos/pcc.jpg",
+    logo: "/logos/pcc.webp",
     degree: "GCE Advanced Level",
     period: "2020",
     gpa: "Z-Score: 1.7006",
@@ -134,7 +134,7 @@ export const EXPERIENCES = [
   {
     id: 1,
     company: "Talentfort (Pvt) Ltd",
-    logo: "/logos/talentfort.jpg",
+    logo: "/logos/talentfort.webp",
     role: "Software Engineer Intern",
     period: "Nov 2024 - May 2025",
     description: [
@@ -157,7 +157,7 @@ export const PROJECTS = [
     tech: ["Spring Boot", "Kafka", "React", "Docker", "PostgreSQL"],
     period: "Ongoing",
     type: "Group Project",
-    imgUrl: "/projects/logistic.png",
+    imgUrl: "/projects/logistic.webp",
     repoLinks: [
       {
         label: "Code",
@@ -180,7 +180,7 @@ export const PROJECTS = [
     tech: ["Python", "Machine Learning", "SDR", "GNU Radio", "Scikit-Learn"],
     period: "Ongoing",
     type: "Research",
-    imgUrl: "/projects/research.png",
+    imgUrl: "/projects/research.webp",
     repoLinks: [
       {
         label: "Code",
@@ -197,7 +197,7 @@ export const PROJECTS = [
     tech: ["NestJS", "Next.js", "PostgreSQL", "Prisma", "Tailwind"],
     period: "2024",
     type: "Individual",
-    imgUrl: "/projects/aqua.png",
+    imgUrl: "/projects/aqua.webp",
     repoLinks: [
       {
         label: "Web",
@@ -225,7 +225,7 @@ export const PROJECTS = [
     tech: ["MERN Stack", "JWT", "RBAC", "Express", "MongoDB"],
     period: "ongoing",
     type: "Individual",
-    imgUrl: "/projects/resort.png",
+    imgUrl: "/projects/resort.webp",
     repoLinks: [],
     liveUrl: "https://resort-reservation-frontend.vercel.app/",
   },
@@ -238,7 +238,7 @@ export const PROJECTS = [
     tech: ["React", "Node.js", "MySQL", "Sequelize"],
     period: "2024",
     type: "Group Project",
-    imgUrl: "/projects/dreamwed.png",
+    imgUrl: "/projects/dreamwed.webp",
     repoLinks: [
       {
         label: "Frontend",
@@ -266,7 +266,7 @@ export const PROJECTS = [
     tech: ["PHP", "MySQL", "HTML/CSS", "JavaScript"],
     period: "2023",
     type: "Group Project",
-    imgUrl: "/projects/readspot.png",
+    imgUrl: "/projects/readspot.webp",
     repoLinks: [
       {
         label: "Code",
@@ -290,7 +290,7 @@ export const PROJECTS = [
     tech: ["C", "Unix Sockets", "HTTP Protocol", "CGI"],
     period: "2023",
     type: "Individual",
-    imgUrl: "/projects/webserver.png",
+    imgUrl: "/projects/webserver.webp",
     repoLinks: [
       {
         label: "Code",

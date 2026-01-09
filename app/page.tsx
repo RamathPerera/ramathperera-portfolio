@@ -264,7 +264,7 @@ export default function Portfolio() {
             <div className="absolute inset-4 border border-purple-500/20 rounded-full animate-[spin_15s_linear_infinite_reverse]" />
             <div className="absolute inset-6 rounded-full overflow-hidden border-2 border-slate-700 bg-[#112240]">
               <Image
-                src="/ramathperera.jpeg"
+                src="/profile.webp"
                 alt="Ramath Perera"
                 fill
                 className="object-cover"
