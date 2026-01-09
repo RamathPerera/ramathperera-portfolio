@@ -104,11 +104,16 @@ export default function Portfolio() {
 
   const scrollToSection = (e: React.MouseEvent, id: string) => {
     e.preventDefault();
-    const element = document.getElementById(id);
-    if (element) {
-      setMobileMenuOpen(false);
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+    setMobileMenuOpen(false); // Close the menu first
+
+    // A tiny timeout ensures the menu state updates before the browser
+    // tries to calculate the scroll position
+    setTimeout(() => {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }, 10);
   };
 
   useEffect(() => {
@@ -179,6 +184,8 @@ export default function Portfolio() {
           >
             RP.
           </div>
+
+          {/* Desktop Menu */}
           <ul className="hidden md:flex gap-8 text-sm font-medium text-slate-400">
             {navItems.map((item) => {
               const id =
@@ -188,9 +195,10 @@ export default function Portfolio() {
                   <a
                     href={`#${id}`}
                     onClick={(e) => scrollToSection(e, id)}
-                    className={`transition-colors hover:text-teal-400 ${
-                      activeSection === id ? "text-teal-400" : ""
-                    }`}
+                    // className={`transition-colors hover:text-teal-400 ${
+                    //   activeSection === id ? "text-teal-400" : ""
+                    // }`}
+                    className="hover:text-teal-400"
                   >
                     {item}
                   </a>
@@ -198,6 +206,7 @@ export default function Portfolio() {
               );
             })}
           </ul>
+
           <div className="flex items-center gap-4">
             <a
               href="/Ramath_Perera_SE.pdf"
@@ -206,14 +215,56 @@ export default function Portfolio() {
             >
               <FaDownload /> <span className="hidden sm:inline">Resume</span>
             </a>
+
+            {/* Mobile Menu Toggle Button */}
             <button
-              className="md:hidden text-slate-200"
+              className="md:hidden text-slate-200 p-2"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
               {mobileMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
             </button>
           </div>
         </div>
+
+        {/* --- ADDED: MOBILE MENU DROPDOWN --- */}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="md:hidden bg-[#050511] border-b border-white/10 overflow-hidden"
+            >
+              <ul className="flex flex-col p-4">
+                {navItems.map((item) => {
+                  const id =
+                    item.toLowerCase() === "about"
+                      ? "hero"
+                      : item.toLowerCase();
+                  const isActive = activeSection === id;
+
+                  return (
+                    <li key={item}>
+                      <a
+                        href={`#${id}`}
+                        onClick={(e) => scrollToSection(e, id)}
+                        // className={`block w-full py-4 text-center text-lg font-medium transition-colors ${
+                        //   isActive
+                        //     ? "text-teal-400 bg-teal-500/5"
+                        //     : "text-slate-400 hover:text-teal-400"
+                        // }`}
+                        className="hover:text-teal-400"
+                      >
+                        {item}
+                      </a>
+                    </li>
+                  );
+                })}
+              </ul>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </motion.nav>
 
       <main className="relative z-10 max-w-7xl mx-auto px-6">
@@ -606,6 +657,12 @@ export default function Portfolio() {
             theme="dark"
           />
         </section>
+
+        <footer className="border-t border-white/5 py-12 mt-20">
+          <div className="text-slate-500 text-sm font-mono order-2 md:order-1 text-center">
+             © {new Date().getFullYear()} Ramath Perera. <br className="md:hidden" /> All rights reserved.
+          </div>
+        </footer>
       </main>
 
       {/* --- DETAILED PROJECT MODAL (UPDATED) --- */}
