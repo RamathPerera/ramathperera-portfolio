@@ -231,7 +231,7 @@ export default function Portfolio() {
               Ramath Perera
             </motion.h1>
             <div className="text-xl lg:text-2xl font-semibold text-slate-400 mb-6 h-8">
-              I am a{" "}
+              {" "}
               <TypeAnimation
                 sequence={[
                   "Software Engineer",
