@@ -150,11 +150,12 @@ export const EXPERIENCES = [
 export const PROJECTS = [
   {
     id: "logistic",
-    title: "Logistic System",
-    shortDesc: "Microservices delivery tracking system.",
+    title: "Real-Time Logistics System",
+    shortDesc:
+      "Microservices delivery tracking system with Kafka and Spring Boot.",
     fullDesc:
-      "A distributed system handling real-time logistics. Implements the Saga Pattern for distributed transactions and Kafka for event streaming between Order, Inventory, and Tracking services. Designed to ensure data consistency across microservices while handling high-throughput delivery events.",
-    tech: ["Spring Boot", "Kafka", "React", "Docker", "PostgreSQL"],
+      "A distributed microservices architecture designed for real-time order processing and delivery tracking. It utilizes Spring Cloud Gateway for routing, Kafka for high-throughput event streaming, and implements the Saga Pattern (Choreography) to maintain data consistency across Order and Inventory services. Features high-frequency GPS tracking optimized via the CQRS pattern.",
+    tech: ["Spring Boot", "Kafka", "React", "Docker", "PostgreSQL", "Redis"],
     period: "Ongoing",
     type: "Group Project",
     imgUrl: "/projects/logistic.webp",
@@ -166,9 +167,9 @@ export const PROJECTS = [
     ],
     collaboration: [
       "Role: Operations & Workflow",
-      "Developing the Order Service and Inventory Service.",
-      "Implementing the Saga Pattern for distributed transactions (Order -> Inventory -> Payment).",
-      "Setting up Kafka Producers for 'Order Placed' events.",
+      "Built the core Order Service handling distributed transaction logic.",
+      "Implemented the Saga Pattern for the 'Order Placement' flow (Order Created → Inventory Reserved → Payment Processed).",
+      "Developed Kafka Producers to emit state-change events and handled compensating transactions for failure recovery.",
     ],
   },
   {
@@ -176,8 +177,15 @@ export const PROJECTS = [
     title: "Fileless Malware Detection",
     shortDesc: "ML framework using Electromagnetic Side-Channel Analysis.",
     fullDesc:
-      "Researching a two-stage ML framework to detect fileless malware (like Poweliks) by analyzing CPU electromagnetic emissions using a HackRF One SDR. The system captures RF signals emitted by the processor during malware execution and uses SVM classifiers to identify malicious patterns without relying on traditional file scanning.",
-    tech: ["Python", "Machine Learning", "SDR", "GNU Radio", "Scikit-Learn"],
+      "A research-based two-stage machine learning framework to detect and classify fileless malware (e.g., Poweliks) by capturing CPU electromagnetic emissions. Utilizing a HackRF One SDR and a Log-Periodic antenna, the system preprocesses RF signals via Short-Time Fourier Transform (STFT) and utilizes SVM/OCSVM classifiers to identify malicious execution patterns across Windows and Linux environments.",
+    tech: [
+      "Python",
+      "Machine Learning",
+      "SDR",
+      "GNU Radio",
+      "Scikit-Learn",
+      "HDF5",
+    ],
     period: "Ongoing",
     type: "Research",
     imgUrl: "/projects/research.webp",
@@ -190,12 +198,20 @@ export const PROJECTS = [
   },
   {
     id: "aqua",
-    title: "Aqua IoT",
-    shortDesc: "Smart water management simulation.",
+    title: "Aqua Smart Water Management",
+    shortDesc:
+      "IoT simulation platform for leak detection and billing visibility.",
     fullDesc:
-      "Full-stack IoT solution for real-time water usage visibility, automated billing predictions, and leak alerts. Includes a simulator for meter readings that pushes data to a NestJS backend, allowing users to monitor consumption patterns via a Next.js dashboard.",
-    tech: ["NestJS", "Next.js", "PostgreSQL", "Prisma", "Tailwind"],
-    period: "2024",
+      "A full-stack IoT simulation system designed to identify residential water leaks and provide billing predictions. Developed a high-performance background engine using Node.js Worker Threads and Node-cron to handle complex simulation math without blocking the main API. Features real-time usage dashboards and automated email alerts for budget overflows.",
+    tech: [
+      "NestJS",
+      "Next.js",
+      "PostgreSQL",
+      "Prisma",
+      "Tailwind",
+      "Nodemailer",
+    ],
+    period: "ongoing",
     type: "Individual",
     imgUrl: "/projects/aqua.webp",
     repoLinks: [
@@ -219,10 +235,10 @@ export const PROJECTS = [
   {
     id: "resort",
     title: "Resort Reservation System",
-    shortDesc: "Priority-based booking system for Army resorts.",
+    shortDesc: "Priority-based booking system for the Sri Lanka Army.",
     fullDesc:
-      "Centralized reservation system with complex business logic for priority queuing (Officers vs Civilians) and Super Admin approval workflows. Features include Role-Based Access Control, automated priority sorting, and a secure booking management portal.",
-    tech: ["MERN Stack", "JWT", "RBAC", "Express", "MongoDB"],
+      "A centralized MERN-stack application featuring a unique tiered priority queue (SLEME Officers > Other Units > Civilians). Implements an exclusive booking model where entire resorts are reserved at once. Includes complex Super Admin approval workflows, automated conflict checking, and secure guest access via OTP-based management.",
+    tech: ["MERN Stack", "JWT", "RBAC", "Nodemailer", "MongoDB"],
     period: "ongoing",
     type: "Individual",
     imgUrl: "/projects/resort.webp",
@@ -232,11 +248,11 @@ export const PROJECTS = [
   {
     id: "dreamwed",
     title: "DreamWed",
-    shortDesc: "Wedding planning platform.",
+    shortDesc: "Wedding planning marketplace with role-based coordination.",
     fullDesc:
-      "Full-stack web app connecting couples with vendors. Features include budget planning, chat functionality, booking management, and a dynamic checklist to guide couples through the wedding planning process.",
-    tech: ["React", "Node.js", "MySQL", "Sequelize"],
-    period: "2024",
+      "A robust marketplace connecting clients with Sri Lankan wedding service providers. The system manages complex vendor hierarchies including beauty salons, catering, and photography. Features include real-time chat, budget planning, and a dynamic progress tracking system to ensure all preparation tasks are completed on time.",
+    tech: ["React", "Node.js", "MySQL", "Sequelize", "Tailwind CSS"],
+    period: "June 2024 - December 2024",
     type: "Group Project",
     imgUrl: "/projects/dreamwed.webp",
     repoLinks: [
@@ -252,19 +268,19 @@ export const PROJECTS = [
       },
     ],
     collaboration: [
-      "Full-stack development for Client-Vendor connection features.",
-      "Implemented the logic for the primary planning flow.",
-      "Developed chat functionality and booking request handling.",
+      "Developed the secure authentication system using JWT.",
+      "Implemented Role-Based Access Control (RBAC) to protect client and vendor data.",
+      "Built frontend modules for service provider packages and client budget planning.",
     ],
   },
   {
     id: "readspot",
-    title: "ReadSpot",
-    shortDesc: "Book exchange community hub.",
+    title: "ReadSpot Online Book Hub",
+    shortDesc: "Community platform for book sharing and donation.",
     fullDesc:
-      "Platform for buying, selling, and exchanging books. Includes event hosting, content management, and community features. The system facilitates book donations and supports a community-driven library exchange model.",
-    tech: ["PHP", "MySQL", "HTML/CSS", "JavaScript"],
-    period: "2023",
+      "A versatile library community hub built without external frameworks. Facilitates buying, selling, and swapping used books. Includes a virtual currency system where users earn points for participating in book-reading challenges. Features an integrated event management system for book drives and literary exhibitions.",
+    tech: ["PHP", "MySQL", "HTML/CSS", "JavaScript", "XAMPP"],
+    period: "June 2023 - April 2024",
     type: "Group Project",
     imgUrl: "/projects/readspot.webp",
     repoLinks: [
@@ -276,19 +292,19 @@ export const PROJECTS = [
     ],
     demoUrl: "https://youtu.be/dG8pfdVTGs8",
     collaboration: [
-      "Developed the Customer Homepage and Dashboard.",
-      "Implemented the Event Saving process and Calendar integration.",
-      "Built CRUD modules for Used and Exchange book sections.",
+      "Developed the Customer Homepage and full-stack Dashboard.",
+      "Implemented the Event Saving system and calendar-based event tracking.",
+      "Built the CRUD logic for managing Used and Exchange book listings.",
     ],
   },
   {
     id: "webserver",
-    title: "C HTTP Server",
-    shortDesc: "Low-level HTTP/1.1 server implementation.",
+    title: "Low-Level C HTTP Server",
+    shortDesc: "Concurrent HTTP/1.1 server with Zero-Copy optimization.",
     fullDesc:
-      "Built from scratch using Unix sockets. Handles concurrent connections, serves static/dynamic content (CGI), and manages processes. Implements core HTTP methods and status codes without reliance on external server libraries.",
-    tech: ["C", "Unix Sockets", "HTTP Protocol", "CGI"],
-    period: "2023",
+      "A functional web server built using the Berkeley Sockets API in C. It supports simultaneous client connections using a multi-process model (fork). Optimized for performance using the sendfile() system call for Zero-Copy data transfer and features security measures like path sanitization to prevent directory traversal attacks. Supports dynamic content via PHP-CGI integration.",
+    tech: ["C", "Unix Sockets", "PHP-CGI", "Process Management"],
+    period: "June 2025 - July 2025",
     type: "Individual",
     imgUrl: "/projects/webserver.webp",
     repoLinks: [
